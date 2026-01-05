@@ -1,0 +1,55 @@
+
+<div class="text-content mx-4 w-75 py-5 px-4 text-center text-md-start">
+  <h1 class="text-primary fw-bold fs-1 opacity-0 translate-middle-y animate">
+      A comprehensive platform for <span class="text-danger">reliable</span>
+  </h1>
+  <h4 class="text-muted fs-3 opacity-0 translate-middle-y animate delay-1s">
+      Job opportunities and internships.
+  </h4>
+  <p class="fs-4 opacity-0 translate-middle-y animate delay-2s">
+      Get Discovered. Get Hired.
+  </p>
+  <a href="/job" class="btn btn-success btn-lg opacity-0 translate-middle-y animate delay-3s">
+      I'm a Job Seeker
+  </a>
+  <a href="/register" class="btn btn-primary btn-lg opacity-0 translate-middle-y animate delay-3s">
+      I'm a Recruiter
+  </a>
+</div>
+
+<!-- Image Section -->
+<div class="image-content ms-4">
+  <img src="https://cdn.ourcodeworld.com/public-media/gallery/gallery-5bf853fc949cd.jpg" 
+       alt="Placeholder" class="img-fluid">
+</div>
+
+<style>
+.animate {
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+.delay-1s { transition-delay: 0.5s; }
+.delay-2s { transition-delay: 1s; }
+.delay-3s { transition-delay: 1.5s; }
+
+.opacity-0 { opacity: 0; }
+.translate-middle-y { transform: translateY(-10px); }
+
+.show {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+
+@media (max-width: 768px) {
+  .text-content {
+    width: 100%;
+    padding: 2rem;
+  }
+}
+</style>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll(".animate").forEach(el => el.classList.add("show"));
+});
+</script>

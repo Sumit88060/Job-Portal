@@ -1,0 +1,44 @@
+<div class="container mt-5 p-4 bg-white rounded shadow">
+    <h2 class="text-center mb-4 text-primary">Applicants List</h2>
+
+    <% if (applicants.length > 0) { %>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Contact</th>
+                        <th>Resume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% applicants.forEach(applicant => { %>
+                        <tr>
+                            <td><%= applicant.name %></td>
+                            <td><%= applicant.email %></td>
+                            <td><%= applicant.contact %></td>
+                            <td>
+                                <% if (applicant.resumePath) { %>
+                                    <a href="/images/<%= applicant.resumePath %>" class="btn btn-primary btn-sm" target="_blank">
+                                        View Resume
+                                    </a>
+                                <% } else { %>
+                                    <span class="text-muted">No Resume</span>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    <% } else { %>
+        <div class="alert alert-warning text-center">
+            No applicants for this job yet.
+        </div>
+    <% } %>
+
+    <div class="text-center mt-3">
+        <a href="/jobdetails/<%= job.id %>" class="btn btn-secondary">Back to Jobs</a>
+    </div>
+</div>

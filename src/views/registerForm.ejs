@@ -1,0 +1,50 @@
+<div class="col-md-10">
+
+    <div class="card shadow-lg p-4">
+        <h2>Experience Easily</h2>
+      <%   if(errorMessage){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= errorMessage %>
+            </div>
+            <%    } %>
+        
+        <form action="/register" method="post">
+            <div class="mb-3">
+                <label for="name" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            
+            <button type="submit" class="btn btn-primary w-100">Register</button>
+
+            <div class="d-flex justify-content-between align-items-center mt-3">
+                <div>
+                    <p>Already registered?</p>
+                    <a href="/login" class="btn btn-danger">Login</a>
+                </div>
+                <div>
+                    <a href="https://www.twitter.com" target="_blank">
+                        <img src="https://static.vecteezy.com/system/resources/previews/027/395/710/original/twitter-brand-new-logo-3-d-with-new-x-shaped-graphic-of-the-world-s-most-popular-social-media-free-png.png" style="width: 50px;" alt="Twitter">
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank">
+                        <img src="https://www.pngkey.com/png/full/448-4486200_instagram-logo-circle.png" style="width: 50px;" alt="Instagram">
+                    </a>
+                    <a href="https://www.whatsapp.com" target="_blank">
+                        <img src="https://tse1.mm.bing.net/th?id=OIP.hbr47SG8Nl1CUsQBVLhz_AHaHa&pid=Api&P=0&h=180" style="width: 50px;" alt="WhatsApp">
+                    </a>
+
+                    <a href="https://www.linkedin.com" target="_blank">
+                        <img src="https://www.freepnglogos.com/uploads/linkedin-logo-hd-png-3.png" style="width: 50px;" alt="Linkedin">
+                    </a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

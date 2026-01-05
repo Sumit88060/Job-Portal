@@ -1,0 +1,43 @@
+
+
+<div class="card border border-primary rounded overflow-hidden w-100 " style="min-height: 600px;">
+    
+    <img src="https://thumbs.dreamstime.com/b/job-search-horizontal-banner-modern-young-people-flat-style-vector-illustration-116803971.jpg" 
+         alt="Company Banner" 
+         class="w-100" 
+         style="height: 350px; object-fit: cover;">
+    
+    <!-- Card Body -->
+    <div class="card-body text-center mt-1 p-4">
+        <h2 class="text-primary"><%= job.position %> opportunity in <%= job.address %> at <%= job.companyName %></h2>
+        <p><i class="bg-warning text-dark px-2 py-1 rounded">Actively hiring📈</i></p>
+
+        <% if(locals.userEmail && locals.userEmail === job.postedBy) { %>
+            <a href="/update-job/<%= job.id %>" class="btn btn-primary">Update</a>
+            <button class="btn btn-danger" onclick="deleteJob('<%= job.id %>')">Delete</button>
+        <% } %>
+        
+        <p><i class="bi bi-geo-alt"></i> 📍 <%= job.address %></p>
+        
+        <p><strong>Salary:</strong> ₹<%= job.salary %></p>
+        <p><strong>Apply By:</strong> <%= job.applyDate || 'N/A' %></p>
+        <p><strong>Number of Openings:</strong> <%= job.openings || 'N/A' %></p>
+
+        <% if(locals.userEmail) {%>
+            <a href="/job/<%= job.id %>/applicants" class="btn"><strong>Applicants:</strong> <%= job.applicantsCount || 0 %></a>
+
+            <% } else { %>
+                <a href="/error" class="btn"><strong>Applicants:</strong> <%= job.applicantsCount || 0 %></a>
+            <% } %>
+            
+
+        <div>
+
+            <% job.skills.forEach(skill => { %>
+                <span class="badge bg-info m-1"><%= skill %></span>
+            <% }) %>
+        </div>
+        <a href="/apply/<%= job.id %>" class="btn btn-primary mt-3">Apply Now</a>
+
+    </div>
+</div>

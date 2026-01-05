@@ -1,0 +1,22 @@
+
+<% addJob.forEach((job) => { %>
+    <div class="card m-2 p-3" style="width: 22rem;height: 27rem; background-color: #1e1e2f; color: white;">
+      <span class="badge bg-warning text-dark mb-4 p-2">Actively hiring 📈</span>
+      <h4 class="text-primary"><%= job.companyName %></h4>
+      <h5 class="text-info"><%= job.position %></h5>
+      <p><i class="bi bi-geo-alt"></i> 📍<%= job.address %></p>
+      <p><strong>₹ <%= job.salary %></strong></p>
+  
+      <% if (job.skills && job.skills.length > 0) { %>
+        <div class="d-flex flex-wrap mb-3">
+          <% job.skills.forEach((sk) => { %>
+            <span class="badge bg-secondary m-1 p-2"><%= sk %></span>
+          <% }) %>
+        </div>
+      <% } %>
+  
+      <a href="/jobdetails/<%= job.id %>" class="btn btn-success mt-3">View details</a>
+
+
+    </div>
+  <% }) %>

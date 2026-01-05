@@ -1,0 +1,28 @@
+<div class="container mt-5">
+    <%- include('navbar') %> <!-- Include navbar from separate file if needed -->
+    
+    <div class="row">
+        <% jobListings.forEach(job => { %>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary fw-bold"><%= job.position %> at <%= job.companyName %></h5>
+                        <p class="card-text"><%= job.location %></p>
+                        <p class="card-text">Salary: <%= job.salary %></p>
+                        <p class="card-text">Apply By: <%= job.applyBy %></p>
+                        <p class="card-text">Openings: <%= job.openings %></p>
+                        <p class="card-text">Applicants: <%= job.applicants %></p>
+
+                        <div>
+                            <% job.skills.forEach(skill => { %>
+                                <span class="badge bg-info"><%= skill %></span>
+                            <% }) %>
+                        </div>
+
+                        <a href="#" class="btn btn-success mt-2">Apply Now</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</div>

@@ -1,0 +1,105 @@
+
+<div class="mt-2 container border p-2 shadow">
+    <h3 class="text-center">Post a New Job</h3>
+    <form action="/postjob" method="POST">
+        <% if (user) { %>
+            <input type="hidden" name="postedBy" value="<%= user ? user._id : '' %>">
+
+        <% } else { %>
+            <p class="text-danger">Error: User not found. Please log in.</p>
+        <% } %>
+        
+
+        <div class="mb-3">
+            <label class="form-label">Job Category</label>
+            <select name="field" class="form-select" required>
+                <option value="">Select job category</option>
+                <option value="Tech">Tech</option>
+                <option value="Non Tech">Non Tech</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Select Job Designation</label>
+            <select name="position" class="form-select" required>
+                <option value="">Select job category</option>
+                <option value="HR">HR</option>
+                <option value="SDE">SDE</option>
+                <option value="DevOps">DevOps</option>
+                <option value="MERN Developer">MERN Developer</option>
+                <option value="MEAN Developer">MEAN Developer</option>
+                <option value="JAVA Developer">JAVA Developer</option>
+                <option value="Front-End Developer">Front-End Developer</option>
+                <option value="Back-End Developer">Back-End Developer</option>
+                <option value="Full-Stack Developer">Full-Stack Developer</option>
+            </select>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Job Location</label>
+            <input type="text" class="form-control" name="address" required>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Company Name</label>
+            <input type="text" class="form-control" name="companyName" required>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Salary</label>
+            <input type="text" class="form-control" name="salary" min="1" required>
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Total Positions</label>
+            <input type="number" class="form-control" name="openings" id="totalPositions" min="1" value="1" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Select Required Skills</label>
+            <div class="form-check">
+                <input class="form-check-input" id= "React" type="checkbox" name="skills[]" value="React">
+                <label class="form-check-label" for= "React">React</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id= "NodeJS" type="checkbox" name="skills[]" value="NodeJS">
+                <label class="form-check-label" for= "NodeJS">NodeJS</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="Angular" type="checkbox" name="skills[]" value="Angular" >
+                <label class="form-check-label" for="Angular">Angular</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="Python" type="checkbox" name="skills[]" value="Python">
+                <label class="form-check-label" for="Python">Python</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="Java" type="checkbox" name="skills[]" value="Java">
+                <label class="form-check-label" for="Java">Java</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="AWS" type="checkbox" name="skills[]" value="AWS">
+                <label class="form-check-label" for="AWS">AWS</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" id="JavaScript" type="checkbox" name="skills[]" value="JavaScript">
+                <label class="form-check-label" for="JavaScript">JavaScript</label>
+            </div>
+           
+            <div class="form-check">
+                <input class="form-check-input" id="MangoDB" type="checkbox" name="skills[]" value="MangoDB">
+                <label class="form-check-label" for="MangoDB">MangoDB</label>
+            </div>
+           
+
+        </div>
+        
+        <div class="mb-3">
+            <label class="form-label">Apply By</label>
+            <input type="date" class="form-control" name="applyDate" >
+        </div>
+        
+        <button type="submit" class="btn btn-primary w-100">Submit</button>
+    </form>
+</div>
+

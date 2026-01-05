@@ -1,0 +1,40 @@
+
+<div class="col-md-10">
+
+    <div class="card shadow-lg p-4">
+        <h2>Apply Now</h2>
+        <%   if(errorMessage){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= errorMessage %>
+            </div>
+            <%    } %>
+
+<% if (job) { %>
+    <form action="/apply/<%= job.id %>" method="POST" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <% console.log("Debug Job ID:", job.id); %>
+
+            <input type="text" class="form-control" id="name" name="name">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="contact" class="form-label">Contact Number</label>
+            <input type="tel" class="form-control" id="contact" name="contact">
+        </div>
+        <div class="mb-3">
+            <label for="resume" class="form-label">Upload Resume</label>
+            <input type="file" class="form-control" id="resume" name="resume" accept=".pdf,.doc,.docx" required>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Submit Application</button>
+    </form>
+<% } else { %>
+    <p class="text-danger">Job not found. Please try again later.</p>
+<% } %>
+
+    </div>
+ </div>
+    
